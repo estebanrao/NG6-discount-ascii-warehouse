@@ -1,9 +1,59 @@
-<navbar></navbar>
-<header>
-  <hero></hero>
+<header class="jumbotron">
+  <h1>Discount Ascii Warehouse</h1>
+  <p>Here you're sure to find a bargain on some of the finest ascii available to purchase. Be sure to peruse our selection of ascii faces in an exciting range of sizes and prices.</p>
+  <p><a class="btn btn-primary btn-lg" href="http://www.linkedin.com/in/estebanrao" target="_blank">Buy now!</a></p>
 </header>
-<main>
-  <div>
-    <h1>Found in {{ $ctrl.name }}.html</h1>
+
+<div class="panel panel-default" id="buy">
+  <div class="panel-body">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <span class="navbar-brand" href="#">Sort by</span>
+          <button type="button" class="btn btn-primary navbar-btn" ng-click="$ctrl.changeSortValue('size')">Size</button>
+          <button type="button" class="btn btn-primary navbar-btn" ng-click="$ctrl.changeSortValue('price')">Price</button>
+          <button type="button" class="btn btn-primary navbar-btn" ng-click="$ctrl.changeSortValue('id')">ID</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td><strong>Face</strong></td>
+            <td><strong>Price</strong></td>
+            <td><strong>Date</strong></td>
+            <td><strong>Actions</strong></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat-start="product in $ctrl.products track by product.id">
+            <td><code ng-style="{'font-size':product.size+'px'}">{{ product.face }}</code></td>
+            <td>{{ product.price / 100 | currency:"$":2 }}</td>
+            <td>{{ product.date | parseDate }}</td>
+            <td>
+              <a class="btn btn-primary btn-xs" href="http://www.linkedin.com/in/estebanrao" target="_blank">
+                <span class="glyphicon glyphicon-check" aria-hidden="true"></span> Buy
+              </a>
+            </td>
+          </tr>
+          <tr ng-repeat-end ng-if="$ctrl.showAd($index+1)" class="warning">
+            <td colspan="4">
+              <a href="http://www.linkedin.com/in/estebanrao" target="_blank">
+                <img class="ad" ng-src="http://localhost:8000/ad/?r={{ $ctrl.adId[(($index+1)/20)-1] }}"/>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  <div class="products-loader" ng-if="!$ctrl.isEnd">
+    <svg class="circular" viewBox="25 25 50 50" ng-show="$ctrl.isLoading">
+      <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+    </svg>
   </div>
-</main>
+  </div>
+</div>
+<a href="http://www.linkedin.com/in/estebanrao" target="_blank" class="btn btn-default btn-lg" ng-if="$ctrl.isEnd"><span class="glyphicon glyphicon-arrow-up"></span> ~ end of catalogue ~</a>

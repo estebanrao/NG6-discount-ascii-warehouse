@@ -1,14 +1,12 @@
 import angular from 'angular';
-import Navbar from './navbar/navbar';
-import Hero from './hero/hero';
-import User from './user/user';
+import Api from './api/api';
+import parseDate from './parse-date/parse-date';
 
 let commonModule = angular.module('app.common', [
-  Navbar,
-  Hero,
-  User
+  Api,
+  parseDate
 ])
-  
+
 .name;
 
 export default commonModule;

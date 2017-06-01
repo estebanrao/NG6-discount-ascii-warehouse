@@ -12,6 +12,7 @@ import lodash   from 'lodash';
 import gutil    from 'gulp-util';
 import serve    from 'browser-sync';
 import del      from 'del';
+import url      from 'url';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import colorsSupported      from 'supports-color';
@@ -74,7 +75,7 @@ gulp.task('serve', () => {
     // application entry point
   ].concat(paths.entry);
 
-  var compiler = webpack(config);
+  const compiler = webpack(config);
 
   serve({
     port: process.env.PORT || 3000,

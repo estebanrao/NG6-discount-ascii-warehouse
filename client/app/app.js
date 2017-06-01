@@ -1,14 +1,20 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import 'oboe/dist/oboe-browser'
+import ngOboe from 'angular-oboe/dist/angular-oboe'
 import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
-import 'normalize.css';
+import $ from 'jquery'
+import 'bootstrap-loader';
+
+window.jQuery = $;
 
 angular.module('app', [
     uiRouter,
     Common,
-    Components
+    Components,
+    'ngOboe'
   ])
   .config(($locationProvider) => {
     "ngInject";

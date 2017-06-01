@@ -2,29 +2,88 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>NG6-Starter by @AngularClass</title>
+    <title>Discount Ascii Warehouse by @estebanrao</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="description" content="NG6-Starter by @AngularClass">
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <meta name="description" content="Discount Ascii Warehouse by @estebanrao">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AAD/fwAA/j8AAPwfAAD4DwAA8AcAAOADAADgAwAA4AMAAOCDAADxxwAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
+    <!-- Super duper fast inline styles -->
+    <style>
+      /* Angular */
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+      }
+
+      /* Loader */
+      .circular {
+        animation: rotate 2s linear infinite;
+        bottom: 0;
+        height: 80px;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform-origin: center center;
+        width: 80px;
+      }
+
+      .path {
+        animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+        stroke-linecap: round;
+      }
+
+      @keyframes rotate {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes dash {
+        0% {
+          stroke-dasharray: 1, 200;
+          stroke-dashoffset: 0;
+        }
+        50% {
+          stroke-dasharray: 89, 200;
+          stroke-dashoffset: -35px;
+        }
+        100% {
+          stroke-dasharray: 89, 200;
+          stroke-dashoffset: -124px;
+        }
+      }
+
+      @keyframes color {
+        100%,
+        0% {
+          stroke: #ff6900;
+        }
+        40% {
+          stroke: #3f82d0;
+        }
+        66% {
+          stroke: #61b51f;
+        }
+        80%,
+        90% {
+          stroke: #1fa2b4;
+        }
+      }
+    </style>
     <base href="/">
   </head>
-  <body ng-app="app" ng-strict-di ng-cloak>
+  <body ng-app="app" ng-strict-di class="container">
 
     <app>
-      Loading...
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+      </svg>
     </app>
 
-    <!-- Google Analytics: change UA-71073175-2 to be your site's ID -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-71073175-2', 'auto');
-      ga('send', 'pageview');
-    </script>
   </body>
 </html>
