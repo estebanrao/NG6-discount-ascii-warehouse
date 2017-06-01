@@ -1,7 +1,7 @@
 {
-  "name": "ng6-starter",
+  "name": "ng6-discount-ascii-warehouse",
   "version": "0.0.1",
-  "description": "Starter for Angular + ES6 + (Webpack or JSPM)",
+  "description": "",
   "main": "index.js",
   "dependencies": {
     "angular": "^1.5.0",
@@ -65,12 +65,13 @@
     "yargs": "^3.9.0"
   },
   "scripts": {
+    "preinstall": "npm install discount-ascii-warehouse",
     "build": "gulp webpack",
     "component": "gulp component",
-    "serve": "gulp serve",
+    "serve": "concurrently --kill-others \"node discount-ascii-warehouse/.\" \"gulp serve\"",
     "start": "concurrently --kill-others \"node discount-ascii-warehouse/.\" \"gulp serve\"",
     "test": "karma start",
-    "watch": "gulp serve",
+    "watch": "concurrently --kill-others \"node discount-ascii-warehouse/.\" \"gulp serve\"",
     "webpack": "gulp webpack"
   },
   "keywords": [
@@ -80,7 +81,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/angularclass/NG6-starter.git"
+    "url": "https://github.com/estebanrao/NG6-discount-ascii-warehouse"
   },
   "author": "AngularClass",
   "license": "Apache-2.0",
